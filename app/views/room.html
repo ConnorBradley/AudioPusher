@@ -1,12 +1,58 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Room</title>
-  </head>
-  <body>
-    <p>
-        Hello room
-    </p>
-  </body>
+<head>
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:700">
+<link rel="stylesheet prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link class="cp-pen-styles" rel="stylesheet" href="room_files/button.css">
+
+<script src="jquery-3.1.1.js"></script>
+</head>
+<body>
+
+<button onclick="checkPlay()" class="send">	
+  <div class="text">SEND</div>
+  <div class="loader"></div>
+  <div class="done">PLAY</div>
+</button>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+<script>$('.send').on('click', function () {
+    $('.text').addClass('active');
+    $('.send').addClass('active');
+    $('.loader').addClass('active');
+    $('.send').delay(1700).queue(function () {
+        $(this).addClass('finished').clearQueue();
+    });
+    $('.done').delay(1600).queue(function () {
+        $(this).addClass('active').clearQueue();
+    });
+});
+//# sourceURL=pen.js
+</script>
+
+<script type="text/javascript">
+    
+var Playing = false;
+
+
+var i = 0;
+function checkPlay() {
+    
+    if (i != 0){
+        alert("inside NOT") //
+    if (Playing == false) {
+        alert("Playing === False");
+        Playing = true;
+    } else if(Playing == true) {
+        alert("Playing === True")
+        Playing = false;
+    }
+    }
+}
+
+    if (i == 1) {
+        i++;
+        alert("I = 0 now prgram should run")
+    }
+
+</script>
+</body>  
 </html>
