@@ -17,6 +17,7 @@ body { margin: 0;
           justify-content: center;
   font-family: 'Montserrat';
   font-weight: 700;
+  padding-top: 50vh;
 }
 
 button {
