@@ -18,6 +18,7 @@
   "dependencies": {
     "async": "^2.1.2",
     "express": "^4.14.0",
+    "fine-uploader": "5.11.5",
     "fs": "0.0.1-security",
     "http": "0.0.0",
     "path": "^0.12.7",

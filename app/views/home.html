@@ -1,15 +1,47 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Home</title>
-    <link rel="stylesheet" href="/public/css/home.css">
-  </head>
-  <body>
-    <p>
-        Hello home
-    </p>
-  </body>
 
-  <script src="/public/js/home.js"></script>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Mini Ajax File Upload Form</title>
+
+		<!-- Google web fonts -->
+		<link href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700" rel='stylesheet' />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+
+
+		<!-- The main CSS file -->
+		<link href="public/css/home.css" rel="stylesheet" />
+	</head>
+
+	<body>
+
+		<form id="upload" method="post" action="upload.php" enctype="multipart/form-data">
+			<div id="drop">
+				Drop Here</br>
+
+				<a>Browse</a>
+				<input type="file" name="upl" multiple />
+			</div>
+
+			<ul>
+				<!-- The file uploads will be shown here -->
+			</ul>
+
+		</form>
+
+		<!-- JavaScript Includes -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="public/js/jquery.knob.js"></script>
+
+		<!-- jQuery File Upload Dependencies -->
+		<script src="public/js/jquery.ui.widget.js"></script>
+		<script src="public/js/jquery.iframe-transport.js"></script>
+		<script src="public/js/jquery.fileupload.js"></script>
+
+		<!-- Our main JS file -->
+		<script src="public/js/upload.js"></script>
+
+	</body>
 </html>

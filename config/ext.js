@@ -21,4 +21,5 @@ module.exports = {
   uuid: require('node-uuid'),
   async: require('async'),
   fs: require('fs')
+  fine-uploader: require('fine-uploader')
 };
