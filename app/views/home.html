@@ -1,47 +1,39 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<head>
-		<meta charset="utf-8"/>
-		<title>Mini Ajax File Upload Form</title>
+  <title>File Uploader - coligo.io</title>
+  <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link href="public/css/home.css" rel="stylesheet">
+</head>
+<body>
 
-		<!-- Google web fonts -->
-		<link href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700" rel='stylesheet' />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <span class="glyphicon glyphicon-cloud-upload"></span>
+            <h2>File Uploader</h2>
+            <h4>coligo.io</h4>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar"></div>
+            </div>
+            <button class="btn btn-lg upload-btn" type="button">Upload File</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <input id="upload-input" type="file" name="uploads[]" multiple="multiple"></br>
 
-		<!-- The main CSS file -->
-		<link href="public/css/home.css" rel="stylesheet" />
-	</head>
-
-	<body>
-
-		<form id="upload" method="post" action="upload.php" enctype="multipart/form-data">
-			<div id="drop">
-				Drop Here</br>
-
-				<a>Browse</a>
-				<input type="file" name="upl" multiple />
-			</div>
-
-			<ul>
-				<!-- The file uploads will be shown here -->
-			</ul>
-
-		</form>
-
-		<!-- JavaScript Includes -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<script src="public/js/jquery.knob.js"></script>
-
-		<!-- jQuery File Upload Dependencies -->
-		<script src="public/js/jquery.ui.widget.js"></script>
-		<script src="public/js/jquery.iframe-transport.js"></script>
-		<script src="public/js/jquery.fileupload.js"></script>
-
-		<!-- Our main JS file -->
-		<script src="public/js/upload.js"></script>
-
-	</body>
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="public/js/upload.js"></script>
+</body>
 </html>

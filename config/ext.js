@@ -18,7 +18,7 @@ module.exports = {
   http: require('http'),
   url: require('url'),
   express: require('express'),
-  uuid: require('node-uuid'),
+  uuid: require('uuid'),
   async: require('async'),
   fs: require('fs')
 };
