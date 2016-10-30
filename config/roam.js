@@ -23,3 +23,6 @@ exports.pusher = new Pusher({
   cluster: 'eu',
   encrypted: true
 });
+
+exports.numClients = 3;
+exports.numDownloadsFinished = 0;

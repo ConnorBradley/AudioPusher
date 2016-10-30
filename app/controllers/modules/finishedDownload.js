@@ -16,6 +16,8 @@ var roam = require( path.join(dir.CONFIG, 'roam.js') );
 ========================================================================================================
 **/
 module.exports = function (req, res) {
+  roam.numDownloadsFinished = roam.numDownloadsFinished + 1;
+
 
   var Pusher = require('pusher');
   var pusher = new Pusher({
@@ -26,11 +28,13 @@ module.exports = function (req, res) {
     encrypted: true
   });
 
-  pusher.trigger("my-channel", 'play', {
-    "message": "play now"
-  });
+  if (roam.numClients == roam.numDownloadsFinished) {
+    pusher.trigger("my-channel", 'play', {
+      "message": "play now"
+    });
 
-  console.log('finished');
+    console.log('finished');
+  }
 };
 /**
 ========================================================================================================

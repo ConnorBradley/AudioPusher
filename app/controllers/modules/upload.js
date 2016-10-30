@@ -27,6 +27,8 @@ var randomNumber = function (low, high) {
 **/
 
 module.exports = function (req, res) {
+  //roam.numClients = 3;            //TO MODIFY IF CHANGE NUMBER OF CLIENTS!!!!!!!
+  //roam.numDownloadsFinished = 0;
   // create an incoming form object
   var form = new ext.formidable.IncomingForm();
 
@@ -40,7 +42,7 @@ module.exports = function (req, res) {
   var refererPath = ext.url.parse(req.header('Referer')).pathname;
   if (refererPath == '/generate') {
     var roomCode = randomNumber(10000, 99999);
-    
+
     roam.openRoom = roomCode;   //open this room for future clients
   }
 
