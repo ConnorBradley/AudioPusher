@@ -14,7 +14,6 @@
 
 module.exports = {
   util: require('util'),
-
   http: require('http'),
   url: require('url'),
   express: require('express'),
@@ -23,5 +22,6 @@ module.exports = {
   fs: require('fs'),
   formidable: require('formidable'),
   math: require('math'),
-  os: require('os')
+  os: require('os'),
+  pusher: require('pusher')
 };

@@ -51,6 +51,9 @@ app.get('/room/:roomCode/', function(req, res) {
   else {
     res.end("Not authorized b*tch")
   }
+
+app.post('/play', function(req, res) {
+  require (path.join(dir.CONTROLLER, 'modules/play.js') )(req, res);
 });
 
 app.post('/pause', function(req, res){

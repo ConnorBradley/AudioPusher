@@ -28,6 +28,20 @@ $(document).ready( function() {
       $('.progress-bar').width('0%');
   });
 
+
+    $("#open-upload-input").click(function(){
+      //if class = this do stuff
+      if ($('#open-upload-input').hasClass("uploaded")){
+        $.ajax({
+          url: "/play",
+          type: 'POST',
+          processData: false,
+          contentType: false,
+          success: function(result){
+          }});
+        }
+    });
+
   $('#upload-input').on('change', function(){
     var files = $(this).get(0).files;
 
@@ -47,10 +61,10 @@ $(document).ready( function() {
       $.ajax({
         url: '/upload',
         type: 'POST',
-        data: formData,
         processData: false,
         contentType: false,
-        success: function(roomCode){
+
+        success: function(roomCode) {
           var protocol = window.location.protocol;
           var host = window.location.hostname;
           var port = window.location.port;
@@ -61,8 +75,10 @@ $(document).ready( function() {
           else {
             generatedUrl = protocol + '//' + host + ':' + port + /room/ + String(roomCode);
           }
-
           $('#generatedUrl').append('<h2>' + generatedUrl + '</h2>');
+
+          $('#open-upload-input').addClass("uploaded");
+          $('#open-upload-input').removeClass("upload-in-action");
 
           console.log('upload successful!\n' + generatedUrl);
         },
@@ -97,8 +113,6 @@ $(document).ready( function() {
 
     }
   });
-
-
 
 
 });
