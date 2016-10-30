@@ -7,6 +7,7 @@ var path = require('path');
 var dir = require('./config/dir.js');
 var server = require( path.join(dir.CONFIG, 'server.js') )();   //server config, possible: manual override input
 var ext = require( path.join(dir.CONFIG, 'ext.js') );          //external modules
+var roam = require( path.join(dir.CONFIG, 'roam.js') );
 
 /**
 ========================================================================================================
@@ -35,10 +36,6 @@ app.get('/generate', function(req, res) {
   require( path.join(dir.CONTROLLER, 'generate.js') )(req, res);
 });
 
-app.get('/room', function(req, res) {
-  require( path.join(dir.CONTROLLER, 'room.js') )(req, res);
-});
-
 app.post('/upload', function(req, res) {
   require( path.join(dir.CONTROLLER, 'modules/upload.js') )(req, res);
 });
@@ -46,6 +43,14 @@ app.post('/upload', function(req, res) {
 app.get('/control', function(req, res) {
   require( path.join(dir.CONTROLLER, 'control.js') )(req, res);
 });
+
+app.get('/room/:roomCode/', function(req, res) {
+  if (req.params.roomCode == roam.openRoom) {
+    require( path.join(dir.CONTROLLER, 'room.js') )(req, res);
+  }
+  else {
+    res.end("Not authorized b*tch")
+  }
 
 app.post('/play', function(req, res) {
   require (path.join(dir.CONTROLLER, 'modules/play.js') )(req, res);
