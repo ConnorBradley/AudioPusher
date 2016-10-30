@@ -24,5 +24,5 @@ exports.pusher = new Pusher({
   encrypted: true
 });
 
-exports.numClients = 3;
+exports.numClients = 20;
 exports.numDownloadsFinished = 0;
