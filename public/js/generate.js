@@ -63,10 +63,24 @@ $(document).ready( function() {
         type: 'POST',
         processData: false,
         contentType: false,
-        success: function(data){
+
+        success: function(roomCode) {
+          var protocol = window.location.protocol;
+          var host = window.location.hostname;
+          var port = window.location.port;
+          var generatedUrl = "";
+          if (port == 80) {
+            generatedUrl = protocol + '//' + host + /room/ + String(roomCode);
+          }
+          else {
+            generatedUrl = protocol + '//' + host + ':' + port + /room/ + String(roomCode);
+          }
+          $('#generatedUrl').append('<h2>' + generatedUrl + '</h2>');
+
           $('#open-upload-input').addClass("uploaded");
           $('#open-upload-input').removeClass("upload-in-action");
-          console.log('upload successful!\n' + data);
+
+          console.log('upload successful!\n' + generatedUrl);
         },
         xhr: function() {
           // create an XMLHttpRequest
