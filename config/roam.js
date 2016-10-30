@@ -4,24 +4,12 @@
 ========================================================================================================
 **/
 
-
+var path = require('path');
+var dir = require('./dir.js');
+var ext = require( path.join(dir.CONFIG, 'ext.js') );
 
 /**
 ========================================================================================================
   Exports
 ========================================================================================================
 **/
-
-module.exports = {
-  util: require('util'),
-
-  http: require('http'),
-  url: require('url'),
-  express: require('express'),
-  uuid: require('uuid'),
-  async: require('async'),
-  fs: require('fs'),
-  formidable: require('formidable'),
-  math: require('math'),
-  os: require('os')
-};
