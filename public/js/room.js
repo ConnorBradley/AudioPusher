@@ -631,5 +631,5 @@ $(document).ready( function() {
           }
       };
       Player.init();
-      
+
 });
