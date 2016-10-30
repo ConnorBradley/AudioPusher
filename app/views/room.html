@@ -33,7 +33,6 @@
     		<div class="soundControl"></div>
     		<div class="time">00:00</div>
     </div>
-
       <script src="//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-58d22c749295bca52f487966e382a94a495ac103faca9206cbd160bdf8aedf2a.js"></script>
       <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
       <script src="/public/js/room.js"></script>
@@ -41,16 +40,18 @@
     <script>
       Pusher.logToConsole = true;
 
+
       var pusher = new Pusher('71596f81b8099ad40225', {
         cluster: 'eu',
         encrypted: true
       });
 
-      var channel = pusher.subscribe('test_channel');
+      var channel = pusher.subscribe(roam.openRoom);
       channel.bind('my_event', function(data) {
-        alert(data.message);
+          alert(data.message);
       });
 
     </script>
+
   </body>
 </html>

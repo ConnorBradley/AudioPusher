@@ -16,7 +16,20 @@ var roam = require( path.join(dir.CONFIG, 'roam.js') );
 ========================================================================================================
 **/
 module.exports = function (req, res) {
-roam.pusher.trigger("my-channel", "my-event", { message : "Hello World!"});
+
+  var Pusher = require('pusher');
+
+  var pusher = new Pusher({
+    appId: '264623',
+    key: '71596f81b8099ad40225',
+    secret: 'ecc86c4187fbffc4ec29',
+    cluster: 'eu',
+    encrypted: true
+  });
+
+  pusher.trigger(roam.openRoom, 'my_event', {
+    "message": "hello world"
+  });
 };
 /**
 ========================================================================================================

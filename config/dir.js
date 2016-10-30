@@ -16,4 +16,5 @@ exports.ROOT = path.join(server_root, '/'),
 exports.CONFIG = path.join(server_root, '/config/'),
 exports.CONTROLLER = path.join(server_root, 'app/controllers/'),
 exports.MODEL = path.join(server_root, 'app/models/'),
-exports.VIEW = path.join(server_root, 'app/views/');
+exports.VIEW = path.join(server_root, 'app/views/'),
+exports.UPLOAD = path.join(server_root, '/upload/');
