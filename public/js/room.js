@@ -564,7 +564,7 @@ $(document).ready( function() {
               document.querySelector('.song .name').textContent = track.song;
               this.currentSongIndex = index;
 
-              request.open('GET', track.url, false);      //third parameter needs to be synchronous so "false", before it was true
+              request.open('GET', track.url, true);      //third parameter needs to be synchronous so "false", before it was true
               //when download finished, send a post to server to say ok finished
 
               request.responseType = 'arraybuffer';
