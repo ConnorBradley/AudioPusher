@@ -27,7 +27,7 @@ module.exports = function (req, res) {
     encrypted: true
   });
 
-  pusher.trigger('test_channel', 'my_event', {
+  pusher.trigger(roam.openRoom, 'my_event', {
     "message": "hello world"
   });
 };
