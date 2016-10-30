@@ -1,5 +1,40 @@
 $(document).ready( function() {
 
+var finishedDownload = function() {
+    $.ajax({
+      // type: 'POST',
+    // make sure you respect the same origin policy with this url:
+    // http://en.wikipedia.org/wiki/Same_origin_policy
+    // url: 'http://nakolesah.ru/',
+
+
+      url: '/finishedDownload',
+      type: "POST",
+      data: {
+          'argument': "test"
+          // 'ca$libri': 'no$libri' // <-- the $ sign in the parameter name seems unusual, I would avoid it
+      },
+      // data: 'roomCode='+texttosend,
+      // processData: false,
+      // contentType: false,
+      // dataType: "text",
+
+      // data send back from server
+      success: function(data){
+          console.log('upload successful!\n' + "This is what we received: " + data);
+      }
+
+      });
+};
+
+/*
+playMusic = function() {
+  Framer.Controls.playButton.dispatchEvent(new Event('mouseup'));
+};*/
+
+
+
+  // Music Player
   var Framer = {
 
           countTicks: 360,
@@ -566,6 +601,13 @@ $(document).ready( function() {
 
               request.open('GET', track.url, true);      //third parameter needs to be synchronous so "false", before it was true
               //when download finished, send a post to server to say ok finished
+              request.onreadystatechange = function () {
+                if(request.readyState === XMLHttpRequest.DONE && request.status === 200) {
+                  finishedDownload();
+                  console.log("DONE DOWNLOADING");
+                }
+              };
+
 
               request.responseType = 'arraybuffer';
 
@@ -633,5 +675,6 @@ $(document).ready( function() {
           }
       };
       Player.init();
+
 
 });

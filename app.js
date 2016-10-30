@@ -68,3 +68,9 @@ app.post('/resume', function(req, res) {
   console.log("resumejax");
 
 });
+
+app.post('/finishedDownload', function(req, res){
+
+  require (path.join(dir.CONTROLLER, 'modules/finishedDownload.js') )(req, res);
+
+});

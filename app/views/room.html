@@ -27,7 +27,7 @@
     		<div class="playarea">
     			<div class="prevSong"></div>
     			<div class="pause"></div>
-          <div class="play"></div>
+          <div id="playthis" class="play"></div>
     			<div class="nextSong"></div>
     		</div>
     		<div class="soundControl"></div>
@@ -35,6 +35,7 @@
     </div>
       <script src="//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-58d22c749295bca52f487966e382a94a495ac103faca9206cbd160bdf8aedf2a.js"></script>
       <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+      <script src="//js.pusher.com/3.0/pusher.min.js"></script>
       <script src="/public/js/room.js"></script>
 
     <script>
@@ -46,10 +47,17 @@
         encrypted: true
       });
 
-      var channel = pusher.subscribe(roam.openRoom);
+      var channel = pusher.subscribe("my-channel");
       channel.bind('my_event', function(data) {
           alert(data.message);
       });
+
+      channel.bind("play", function (data) {
+        console.log("OK PLAY" + document.querySelector('.play').dispatchEvent(new Event('mouseup')) );
+
+
+      });
+      //var roomCode = location.search.split('room/')[1];
 
     </script>
 
