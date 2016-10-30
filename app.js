@@ -42,3 +42,19 @@ app.get('/room', function(req, res) {
 app.post('/upload', function(req, res) {
   require( path.join(dir.CONTROLLER, 'modules/upload.js') )(req, res);
 });
+
+app.get('/control', function(req, res) {
+  require( path.join(dir.CONTROLLER, 'control.js') )(req, res);
+});
+
+app.post('/pause', function(req, res){
+
+  console.log("pauseajax")
+
+});
+
+app.post('/resume', function(req, res){
+
+  console.log("resumejax")
+
+});
