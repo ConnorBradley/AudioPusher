@@ -172,3 +172,18 @@ button.send.finished {
   -webkit-transition: 0.4s cubic-bezier(0.35, -0.77, 0.67, 1.88);
   transition: 0.4s cubic-bezier(0.35, -0.77, 0.67, 1.88);
 }
+
+#generatedUrl {
+  /*background-color: #484848;*/
+  /*text-decoration-color: #FFFFFF;*/
+  position: absolute;
+  top: 55%;
+}
+
+a {
+  color: #818181;
+}
+
+a:hover, a:focus {
+  color: #f1f1f1;
+}

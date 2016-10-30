@@ -193,7 +193,12 @@ $(document).ready( function() {
           else {
             generatedUrl = protocol + '//' + host + ':' + port + /room/ + String(roomCode);
           }
-          $('#generatedUrl').append('<h2>' + generatedUrl + '</h2>');
+
+          $('#generatedUrl').append('<br/>'+'<h2>' + '<a href="'+ generatedUrl+'">'+generatedUrl+'</a>' + '</h2>').css({'color':'black'});
+          // $('body').append($('<a href="'+desiredLink+'">'+desiredText+'</a>'));
+          // $('#about').css({'background-color':'black'});
+
+
 
           $('#open-upload-input').addClass("uploaded");
           $('#open-upload-input').removeClass("upload-in-action");
