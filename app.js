@@ -24,7 +24,7 @@ app.use('/vendors', ext.express.static('vendors'));
 console.log('Public assets ready to be served.');
 
 //Express.js server
-var httpServer = app.listen(server.PORT);
+var httpServer = app.listen(server.PORT, "0.0.0.0");
 console.log('Server mode ' + server.MODE + ' listening port ' + server.PORT );
 
 //Manual routing
