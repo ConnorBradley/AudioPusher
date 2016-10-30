@@ -88,3 +88,22 @@ button .fa {
    -ms-transform: scale(0);
    transform: scale(0);
 }
+
+/*header*/
+
+#header {
+  background-color: #484848;
+}
+
+.flex-box {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.center-content {
+  padding: 2.5% 5%;
+}
