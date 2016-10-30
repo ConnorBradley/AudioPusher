@@ -8,6 +8,7 @@ var path = require('path');
 var dir = require('../../../config/dir.js');
 var ext = require( path.join(dir.CONFIG, 'ext.js') );
 var cons = require( path.join(dir.CONFIG, 'cons.js') );
+var roam = require( path.join(dir.CONFIG, 'roam.js') );
 
 /**
 ========================================================================================================
@@ -33,13 +34,15 @@ module.exports = function (req, res) {
   form.multiples = true;
 
   // store all uploads in the /uploads directory
-  console.log(path.join(dir.ROOT, '/upload'));
   form.uploadDir = path.join(dir.ROOT, '/upload');
 
-  // get referer
+  // Generate Url & open room when /generate
   var refererPath = ext.url.parse(req.header('Referer')).pathname;
-  var roomCode = randomNumber(10000, 99999);
-  var generatedUrl = (refererPath == '/generate')? path.join(cons.DOMAIN + ':' + cons.PORT_DEV, '/room/', String(roomCode)) : refererPath;
+  if (refererPath == '/generate') {
+    var roomCode = randomNumber(10000, 99999);
+    
+    roam.openRoom = roomCode;   //open this room for future clients
+  }
 
   // every time a file has been uploaded successfully,
   // rename it to it's orignal name
@@ -54,7 +57,7 @@ module.exports = function (req, res) {
 
   // once all the files have been uploaded, send a response to the client
   form.on('end', function() {
-    res.end('success');
+    res.end(String(roam.openRoom));
   });
 
   // parse the incoming request containing the form data
