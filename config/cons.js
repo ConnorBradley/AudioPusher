@@ -17,4 +17,4 @@ exports.DOMAIN = "localhost";
 exports.PORT_DEV = 8080
 exports.PORT_INTEG = 8080
 exports.PORT_STAG = 8080
-exports.PORT_PROD = 8080
+exports.PORT_PROD = 80
