@@ -28,6 +28,20 @@ $(document).ready( function() {
       $('.progress-bar').width('0%');
   });
 
+
+    $("#open-upload-input").click(function(){
+      //if class = this do stuff
+      if ($('#open-upload-input').hasClass("uploaded")){
+        $.ajax({
+          url: "/play",
+          type: 'POST',
+          processData: false,
+          contentType: false,
+          success: function(result){
+          }});
+        }
+    });
+
   $('#upload-input').on('change', function(){
     var files = $(this).get(0).files;
 
@@ -47,11 +61,12 @@ $(document).ready( function() {
       $.ajax({
         url: '/upload',
         type: 'POST',
-        data: formData,
         processData: false,
         contentType: false,
         success: function(data){
-            console.log('upload successful!\n' + data);
+          $('#open-upload-input').addClass("uploaded");
+          $('#open-upload-input').removeClass("upload-in-action");
+          console.log('upload successful!\n' + data);
         },
         xhr: function() {
           // create an XMLHttpRequest
@@ -84,8 +99,6 @@ $(document).ready( function() {
 
     }
   });
-
-
 
 
 });

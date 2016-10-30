@@ -47,6 +47,10 @@ app.get('/control', function(req, res) {
   require( path.join(dir.CONTROLLER, 'control.js') )(req, res);
 });
 
+app.post('/play', function(req, res) {
+  require (path.join(dir.CONTROLLER, 'modules/play.js') )(req, res);
+});
+
 app.post('/pause', function(req, res){
 
   console.log("pauseajax")

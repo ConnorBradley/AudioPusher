@@ -3,8 +3,25 @@
   <head>
     <meta charset="utf-8">
     <title>Room</title>
+    <script src="//js.pusher.com/3.0/pusher.min.js"></script>
+    <script src="public/js/room.js" type="text/javascript"> </script>
   </head>
   <body>
+    <script>
+
+      Pusher.logToConsole = true;
+
+      var pusher = new Pusher('71596f81b8099ad40225', {
+        cluster: 'eu',
+        encrypted: true
+      });
+
+      var channel = pusher.subscribe('test_channel');
+      channel.bind('my_event', function(data) {
+        alert(data.message);
+      });
+
+    </script>
 
   </body>
 </html>
