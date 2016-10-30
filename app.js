@@ -36,13 +36,8 @@ app.get('/generate', function(req, res) {
   require( path.join(dir.CONTROLLER, 'generate.js') )(req, res);
 });
 
-app.post('/upload/:roomCode', function(req, res) {
-  if (req.params.roomCode == roam.openRoom) {
-        require( path.join(dir.CONTROLLER, 'modules/upload.js') )(req, res);
-      }
-      else {
-        res.end("Wrong neighbourhood, kid")
-      }
+app.post('/upload', function(req, res) {
+  require( path.join(dir.CONTROLLER, 'modules/upload.js') )(req, res);
 });
 
 app.get('/control', function(req, res) {
